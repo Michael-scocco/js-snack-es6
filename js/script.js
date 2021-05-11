@@ -37,14 +37,41 @@ const ListaBici = [
         peso : 18
     }
 ];
+
+// quale bici pesa di meno?
+let biciLeggera = ListaBici[0];//quindi partendo dal primo indice
+
+//vado a ciclare in tutto il mio array di oggetti.
+for (var i = 0; i < ListaBici.length; i++) {
+    var singolaBici = ListaBici[i];
+    // console.log(singolaBici.peso);
+    var pesoSingolaBici = singolaBici.peso;
+
+// confronto la variabile biciLeggera con il mio singolo indice riferito a peso
+// se, biciLeggera è minore di pesoSingolaBici,
+    if (biciLeggera < pesoSingolaBici) {
+        console.log(biciLeggera, pesoSingolaBici);
+    }
+
+}
+
 // Stampare a schermo la bici con peso minore utilizzando
 //  destructuring e template literal
 
-for (var i = 0; i < ListaBici.length; i++) {
-    var singolaBici = ListaBici[i];
-    const [peso] = ListaBici;
-    console.log(singolaBici.peso);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
