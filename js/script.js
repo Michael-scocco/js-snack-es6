@@ -209,202 +209,79 @@ console.log(listaFalli);
 /*
 Scrivere una funzione che accetti tre argomenti,
 un array e due numeri (a più piccolo di b).
-La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
+La funzione ritornerà un nuovo array con i valori che hanno la posizione
+compresa tra i due numeri.
 Usiamo i nuovi metodi degli array forEach o filter.
 */
 
 // Scrivere una funzione che accetti tre argomenti,
 
-var arrayNumeri = [1,2,3,4,5,6,7,8,9,10];
+const arrayNumeri = [1,2,3,4,5,6,7,8,9,10];
 
-var valoreMin;
-var valoreMax;
+let valoreMin = 4;
+let valoreMax = 8;
+/*
+//filter
+const nuovoArray = arrayNumeri.filter((element, i) =>{
 
-arrayNumeri.forEach((singoloNumero, i, array) => {
+    if (valoreMin < i && valoreMax > i) { //forma base
+        return true;
+    }
+
+    return valoreMin < i && valoreMax > i; // forma contratta
+
+});
+*/
+
+
+// foreach
+/*
+const nuovoArrayFor = [];
+                        //questo è l'indice
+arrayNumeri.forEach((singoloNumero, i) => {
 
     // console.log('questo è l\'intero array ' + array.length);
-    console.log('questo è il singolo numero' + singoloNumero + ' questa è la posizione ' + i);
-    console.log('questa è la l\'array ' + array);
+console.log('questo è il singolo numero' + singoloNumero + ' questa è la posizione ' + i);
 
-    var nuovoArray = [];
-
-    if (valoreMin < singoloNumero && valoreMax > singoloNumero) {
+    if (valoreMin < i && valoreMax > i) {
         nuovoArray.push(singoloNumero);
     }
-    console.log(nuovoArray);
 });
+console.log(nuovoArrayFor);
+*/
 
+// forEach con funzione
 
+function functionName(array, valoreMin, valoreMax) {
 
+    const nuovoArray =[];
+    array.forEach((singoloNumero, i) => {
 
+    console.log('questo è il singolo numero' + singoloNumero + ' questa è la posizione ' + i);
 
-
-
-
-
-
-
-
-/*
-const nuoveSquadre = [];
-
-for (var i = 0; i < Squadre.length; i++) {
-    var singolaSquadra = Squadre[i];
-    singolaSquadra.punti = randomNumeri(0, 90);
-    singolaSquadra.falli = randomNumeri(0, 90);
-    let falli = singolaSquadra.falli;
-    let nome = singolaSquadra.nome;
-    nuoveSquadre.push({nome, falli});
-
-}
-console.log(nuoveSquadre);
-
-function ordineOggetto() {
-
-    const ordinaOggetto = nuoveSquadre.sort(
-
-        function(a,b) {
-            let A = a.falli;
-            let B = b.falli;
-
-            if (A < B) {
-                return - 1;
-            } else if (A > B){
-                return 1;
-            }
-            return 0;
+        if (valoreMin < i && valoreMax > i) {
+            nuovoArray.push(singoloNumero);
         }
-    );
-    return console.log(ordinaOggetto);
+    });
+    return nuovoArray
 }
-// ordineOggetto()
+var risultato = functionName(arrayNumeri, 4, 8)
+console.log(risultato);
 
-*/
 
 
-// Creare un array di oggetti: ogni oggetto descriverà
-// una bici da corsa con le seguenti proprietà: nome e peso.
-// Stampare a schermo la bici con peso minore.
-
-/*
-let listaBici =[
-
-    {
-    'nome' : 'Bianchi',
-    'peso' : 6
-    },
-    {
-    'nome' : 'Pavanelli',
-    'peso' : 8
-    },
-    {
-    'nome' : 'Mtb',
-    'peso' : 10
-    },
-    {
-    'nome' : 'Scott',
-    'peso' : 4
-    }
-            ];
-*/
-/*
-let biciLeggera ={
-    'nome': '',
-    'peso': Number.MAX_SAFE_INTEGER//il più grande numero che c'è nel computer
-};
-*/
-/*
-for (let i = 0; i < listaBici.length; i++) {
-
-    const singolaBici = listaBici[i];
-
-    const {peso} = singolaBici; //assegno il valore di peso
-
-    console.log(singolaBici);
-
-    if (peso < biciLeggera.peso) {
-        console.log('questa è la bici', biciLeggera);//per stampare un oggetto, non usare il + ma direttamente la virgola
-
-        biciLeggera = singolaBici;
-    }
-
-}
-console.log('la bici più leggera è ', biciLeggera);
-*/
-// ____________________________________________________________________________
-
-// Creare un array di oggetti di squadre di calcio.
-// Ogni squadra avrà diverse proprietà:
-// nome, punti fatti, falli subiti.
-// Nome sarà l'unica proprietà da compilare,
-// le altre saranno tutte settate a 0.
-/*
-let listaSquare = [
-    {
-        'nome' : 'Ancona',
-        'puntiFatti' : 0,
-        'falliSubiti' : 0
-    },
-    {
-        'nome' : 'Civitanova',
-        'puntiFatti' : 0,
-        'falliSubiti' : 0
-    },
-    {
-        'nome' : 'Macerata',
-        'puntiFatti' : 0,
-        'falliSubiti' : 0
-    },
-    {
-        'nome' : 'Perugia',
-        'puntiFatti' : 0,
-        'falliSubiti' : 0
-    }
-];
-*/
-// Generare numeri random al posto degli 0 nelle proprietà:
-// punti fatti e falli subiti
-/*
-function randomValori(min, max) {
-    let valoreMin = min;
-    let valoreMax = max - valoreMin + 1;
-
-    let valori = Math.floor(Math.random() * valoreMax) + valoreMin;
-
-return valori;
-}
-*/
-
-/*
-for (let i = 0; i < listaSquare.length; i++) {
-
-    let squadra = listaSquare[i];
-    squadra['puntiFatti'] = randomValori(0, 50);
-    squadra['falliSubiti'] = randomValori(0, 50);
-    console.log(squadra);
-    let {falliSubiti} = squadra;
-    console.log(falliSubiti);
-}
-console.log(listaSquare);
-*/
-
-/*
-const student = {//questo è un oggetto quindi lo richiamo con le graffe
-
-    'nome' : 'michael',
-    'cognome' : 'scocco',
-    'email' : 'scocco@'
-};
-*/
-/*
-const descrizione = student['nome'];
-const descrizione2 = student['cognome'];
-console.log(descrizione, descrizione2);
-const {nome, email} = student;
-console.log(nome, email);
-
-const studenti = ['paolo', 'olga', 'gianluca', 'mario'];//questo è un array quindi lo richiamo con le quadre
-
-const [studente, , ,studente4] = studenti;
-console.log(studente,studente4);
-*/
+// function filterArray(array, valoreMin, valoreMax) {
+//
+//     var nuovoArray = [];
+//
+//     for (var i = 0; i < array.length; i++) {
+//             var elemento = array[i];
+//         if (valoreMin < elemento && valoreMax > elemento) {
+//             nuovoArray.push(elemento);
+//
+//         }
+//     }
+//     return nuovoArray;
+// }
+// var risultato = filterArray(arrayNumeri, 4, 8);
+// console.log(risultato);
